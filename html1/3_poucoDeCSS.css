@@ -1,0 +1,7 @@
+#textoPrincipal {/* para aplicar em ID colocamos o '#' */
+    font-size: 40px;
+    font-weight: bolder;
+    color: white;
+    background-color: black;
+    padding: 15px;
+}

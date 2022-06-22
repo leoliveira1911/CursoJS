@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gradient Video Progress Bar</title>
+    <style>
+      body {
+        background-image: 
+        radial-gradient(circle at top right, green, cyan);
+        display: grid;
+        height: 100vh;
+        place-items: center;
+        width: 100%;
+      }
+  
+      figure {
+        width: 50%;
+      }
+  
+      video {
+        display: block;
+        width: 100%;
+      }
+  
+      figcaption {
+        align-items: center;
+        background: #eaeaea;
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: 50px auto min(115px);
+        padding: 0.5rem;
+      }
+  
+      button {
+        border: 0;
+        background: green;
+        display: inline;
+        color: white;
+        order: 1;
+        padding: 0.5rem;
+        transition: opacity 0.25s ease-out;
+        width: 100%;
+      }
+      button:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+  
+      label {
+        order: 2;
+        text-align: center;
+      }
+  
+      /* Fallback stuff */
+      progress[value] {
+        appearance: none;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+        color: dodgerblue;
+        display: inline;
+        height: 15px;
+        order: 1;
+        position: relative;
+        width: 100%;
+      }
+  
+      /* WebKit styles */
+      progress[value]::-webkit-progress-bar {
+        background-color: white;
+        border-radius: 3px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+      }
+  
+      progress[value]::-webkit-progress-value {
+        background-image: 
+        linear-gradient(to right, green, cyan);
+        border-radius: 3px;
+        position: relative;
+        transition: width 1s linear;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="color: black; font-size: 70px;">
+    Welcome To GFG
+  </h2>
+    <figure>
+      <video id="video"
+        src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20191016154640/geeks6.mp4">
+    </video>
+      
+      <figcaption>
+        <label id="timer"
+          for="progress"
+          role="timer">
+      </label>
+        <button id="play"
+            aria-label="Play"
+            role="button">
+        Play
+      </button>
+        <progress id="progress"
+            max="100"
+            value="0">
+        Progress
+      </progress>
+      </figcaption>
+    </figure>
+    <script>
+      const progress = document.getElementById("progress");
+      const timer = document.getElementById("timer");
+      button = document.getElementById("play");
+  
+      function progressLoop() {
+        setInterval(function () {
+          progress.value = 
+          Math.round((video.currentTime / video.duration) * 100);
+          
+          timer.innerHTML = 
+          Math.round(video.currentTime) + " seconds";
+        });
+      }
+  
+      function playPause() {
+        if (video.paused) {
+          video.play();
+          button.innerHTML = "Pause";
+        } else {
+          video.pause();
+          button.innerHTML = "Play";
+        }
+      }
+  
+      button.addEventListener("click", playPause);
+      video.addEventListener("play", progressLoop);
+    </script>
+  </body>
+</html>      

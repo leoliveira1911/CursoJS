@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5" data-blabla="opa">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]') //dá a mesma coisa que o seletor #compras
+        console.log('Elemento "ul" ...........')
+        console.log('childNodes', lista.childNodes)
+        console.log('destino' , lista.destino)
+        console.log('getAttribute', lista.getAttribute('destino')) //para atributos personalizados
+        console.log('hasAttribute' , lista.hasAttribute('destino'))
+        lista.setAttribute('destino' , 'empresa') //mudou o destino de "escritório" para "empresa"
+        lista.setAttribute('status' , 'aberto')
+        lista.removeAttribute('destino')
+        console.log(lista.dataset) //atributos personalizados começando com 'data-' são tratados diferente
+        console.log('lista.dataset.urgencia' , lista.dataset.urgencia)
+        lista.dataset.urgencia = 4
+        console.log('lista.gerAttribute("data-urgencia")',lista.getAttribute('data-urgencia'))
+
+        // cuidado! - nem sempre o atributo que esta definido no HTML estará disponivel para acessar com o mesmo nome
+
+        const label = document.querySelector('label')
+        console.log(label.for) 
+        console.log(label.htmlFor)
+        console.log(label.getAttribute('for'))
+    
+        //atributos que são do HTML conseguimos acessar com notação "." e atributos personalizados podemos acessar com o 
+        //getAttribute. E se for um atributo personalizado com o 'data-', acessamos como o 'dataset.NomeDoAtributo'
+    </script>
+</body>
+
+</html>

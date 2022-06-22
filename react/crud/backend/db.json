@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Arthur Oliveira",
+      "email": "aoliveira@cod3r.com.br"
+    },
+    {
+      "id": 2,
+      "name": "Maria Julia da Silva",
+      "email": "mjds@empresa.com.br"
+    },
+    {
+      "name": "Leandro Oliveira Benevides",
+      "email": "leoliveira1911@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Renata",
+      "email": "renatalobo40@hotmail.com",
+      "id": 4
+    },
+    {
+      "name": "Brunão da Massa",
+      "email": "drivetosurvive@netflix.com",
+      "id": 5
+    }
+  ]
+}
